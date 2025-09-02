@@ -51,7 +51,12 @@ public class CheckoutSolution {
             case 'R' -> 50 * count;
             case 'S' -> 30 * count;
             case 'T' -> 20 * count;
-            case 'U' -> 10 * count;
+            case 'U' -> getUPrice(count);
+            case 'V' -> getVPrice(count);
+            case 'W' -> 20 * count;
+            case 'X' -> 90 * count;
+            case 'Y' -> 10 * count;
+            case 'Z' -> 50 * count;
             default -> 0;
         };
     }
@@ -158,6 +163,20 @@ public class CheckoutSolution {
             free = (count / 3);
         }
         return (count - free) * 40;
+    }
+
+    private Integer getVPrice(int count) {
+        int total = 0;
+        if (count >= 3) {
+            total += (count / 3) * 130;
+            count = count % 3;
+        }
+        if (count == 2) {
+            total += (count / 2) * 90;
+            count = 0;
+        }
+        total += count * 50;
+        return total;
     }
 
 }
