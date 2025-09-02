@@ -159,8 +159,8 @@ public class CheckoutSolution {
 
     private Integer getUPrice(int count) {
         int free = 0;
-        if (count >= 3) {
-            free = (count / 3);
+        if (count >= 4) {
+            free = (count / 4);
         }
         return (count - free) * 40;
     }
