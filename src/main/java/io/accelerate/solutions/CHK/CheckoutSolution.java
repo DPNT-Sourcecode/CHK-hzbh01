@@ -1,6 +1,7 @@
 package io.accelerate.solutions.CHK;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class CheckoutSolution {
@@ -27,6 +28,14 @@ public class CheckoutSolution {
             itemsHandled.add(c);
         }
         return sum;
+    }
+
+    private Integer getBundledItemsPrice(StringBuilder skus) {
+        List<Character> groupOrder = Arrays.asList('Z', 'S', 'T', 'Y', 'X');
+        long totBundledItems = 0;
+        for(char target: groupOrder) {
+            int count = (int) skus.chars().filter(t -> t == target).count();
+        }
     }
 
     private Integer getItemsPrice(char item, int count, String skus) {
@@ -175,3 +184,4 @@ public class CheckoutSolution {
     }
 
 }
+
