@@ -53,7 +53,7 @@ public class CheckoutSolution {
                 groupOrder.remove(0);
             }
         }
-        return count * 45;
+        return toConsume * 45;
     }
 
     private Integer getItemsPrice(char item, int count, String skus) {
@@ -202,6 +202,7 @@ public class CheckoutSolution {
     }
 
 }
+
 
 
 
