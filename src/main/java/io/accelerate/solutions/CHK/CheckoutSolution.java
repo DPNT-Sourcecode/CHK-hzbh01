@@ -42,16 +42,18 @@ public class CheckoutSolution {
                     count = count % 3;
                 }
                 total += count * 50;
-                yield 50 * count;
+                yield total;
             }
             case 'B' -> {
+                int total = 0;
                 int free = getNumberOfFreeBItems('E', skus);
-                if (count >= 2) {
-                    int remain = count % 2;
-                    int discounted = count / 2;
-                    yield discounted * 45 + remain * 30 - (free * 30);
+                int payable = count - free;
+                if (payable >= 2) {
+                    total += (payable / 2) * 45;
+                    payable = payable % 2;
                 }
-                yield 30 * count - (free * 30);
+                total += payable * 30;
+                yield total;
             }
             case 'C' -> 20 * count;
             case 'D' -> 15 * count;
@@ -60,9 +62,10 @@ public class CheckoutSolution {
         };
     }
 
-    private Integer getNumberOfFreeBItems(char item, String skus)  {
-        int count = (int) skus.chars().filter(t -> t == item).count();
+    private Integer getNumberOfFreeBItems(String skus)  {
+        int count = (int) skus.chars().filter(t -> t == 'E').count();
         return count / 2;
     }
 
 }
+
