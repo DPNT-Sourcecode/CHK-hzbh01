@@ -13,7 +13,7 @@ public class CheckoutSolution {
         }
 
         for(char c: skus.toCharArray()){
-            if (c != 'A' && c != 'B' && c != 'C' && c != 'D'){
+            if (c != 'A' && c != 'B' && c != 'C' && c != 'D' && c != 'E'){
                 return -1;
             }
         }
@@ -49,6 +49,7 @@ public class CheckoutSolution {
             }
             case 'C' -> 20 * count;
             case 'D' -> 15 * count;
+            case 'E' -> 40 * count;
             default -> 0;
         };
     }
