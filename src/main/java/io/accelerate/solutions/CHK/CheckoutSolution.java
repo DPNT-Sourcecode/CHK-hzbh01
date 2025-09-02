@@ -32,27 +32,13 @@ public class CheckoutSolution {
     private Integer getItemsPrice(char item, int count, String skus) {
         return switch (item) {
             case 'A' -> getAPrice(count);
-            case 'B' -> {
-                int total = 0;
-                int free = getCountOfFreeItems('E', skus, 2);
-                int payable = count - free;
-                if (payable >= 2) {
-                    total += (payable / 2) * 45;
-                    payable = payable % 2;
-                }
-                total += payable * 30;
-                yield total;
-            }
+            case 'B' -> getBPrice(count, skus);
             case 'C' -> 20 * count;
             case 'D' -> 15 * count;
             case 'E' -> 40 * count;
-            case 'F' -> {
-                int free = 0;
-                if (count >= 3) {
-                    free = (count / 3);
-                }
-                yield (count - free) * 10;
-            }
+            case 'F' -> getFPrice(count);
+            case 'G' -> 20 * count;
+            case 'H' -> 15 * count;
             default -> 0;
         };
     }
@@ -90,6 +76,28 @@ public class CheckoutSolution {
             payable = payable % 2;
         }
         total += payable * 30;
+        return total;
+    }
+
+    private Integer getFPrice(int count) {
+        int free = 0;
+        if (count >= 3) {
+            free = (count / 3);
+        }
+        return (count - free) * 10;
+    }
+
+    private Integer getHPrice(int count) {
+        int total = 0;
+        if (count >= 10) {
+            total += (count / 10) * 80;
+            count = count % 10;
+        }
+        if (count >= 5) {
+            total += (count / 5) * 45;
+            count = count % 5;
+        }
+        total += count * 10;
         return total;
     }
 
