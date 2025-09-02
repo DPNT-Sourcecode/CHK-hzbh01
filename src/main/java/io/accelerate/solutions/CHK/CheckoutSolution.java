@@ -61,11 +61,6 @@ public class CheckoutSolution {
         };
     }
 
-    private Integer getNumberOfFreeBItems(String skus)  {
-        int count = (int) skus.chars().filter(t -> t == 'E').count();
-        return count / 2;
-    }
-
     private Integer getCountOfFreeItems(char target, String skus, int divisor) {
         int count = (int) skus.chars().filter(t -> t == target).count();
         return count / divisor;
