@@ -147,7 +147,7 @@ public class CheckoutSolution {
             total += (count / 2) * 120;
             count = count % 2;
         }
-        total += count * 80;
+        total += count * 70;
         return total;
     }
 
@@ -202,6 +202,7 @@ public class CheckoutSolution {
     }
 
 }
+
 
 
 
