@@ -32,9 +32,15 @@ public class CheckoutSolution {
 
     private Integer getBundledItemsPrice(StringBuilder skus) {
         List<Character> groupOrder = Arrays.asList('Z', 'S', 'T', 'Y', 'X');
-        long totBundledItems = 0;
+        int totBundledItems = 0;
         for(char target: groupOrder) {
-            int count = (int) skus.chars().filter(t -> t == target).count();
+            totBundledItems += (int) skus.chars().filter(t -> t == target).count();
+        }
+        int groupLength =  totBundledItems / 3;
+        int toConsume = groupLength * 3;
+        int count = 0;
+        while (count < toConsume) {
+            count++;
         }
     }
 
@@ -184,4 +190,5 @@ public class CheckoutSolution {
     }
 
 }
+
 
