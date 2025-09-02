@@ -45,6 +45,9 @@ public class CheckoutSolution {
             case 'L' -> 90 * count;
             case 'M' -> getMPrice(count, skus);
             case 'N' -> 40 * count;
+            case 'O' -> 10 * count;
+            case 'P' -> getPPrice(count);
+            case 'Q' -> getQPrice(count);
             default -> 0;
         };
     }
@@ -121,6 +124,28 @@ public class CheckoutSolution {
         int free = getCountOfFreeItems('N', skus, 3);
         int payable = count - free;
         return payable * 15;
+    }
+
+    private Integer getPPrice(int count) {
+        int total = 0;
+        if (count >= 5) {
+            total += (count / 5) * 200;
+            count = count % 5;
+        }
+        total += count * 50;
+        return total;
+    }
+
+    private Integer getQPrice(int count, String skus) {
+        int total = 0;
+        int free = getCountOfFreeItems('R', skus, 3);
+        int payable = count - free;
+        if (payable >= 3) {
+            total += (payable / 3) * 80;
+            payable = payable % 3;
+        }
+        total += payable * 30;
+        return total;
     }
 
 }
