@@ -17,7 +17,8 @@ public class CheckoutSolutionTest {
 
     @Test
     public void auxTesting() {
-        int res = chk.checkout("YZZZ");
-        assertThat(res, equalTo(20+45));
+        int res = chk.checkout("KK");
+        assertThat(res, equalTo(120));
     }
 }
+
