@@ -19,6 +19,10 @@ public class CheckoutSolution {
             }
         }
 
+        StringBuilder skusBuilder = new StringBuilder(skus);
+        sum += getBundledItemsPrice(skusBuilder);
+        skus = skusBuilder.toString();
+
         for(char c: skus.toCharArray()){
             if(itemsHandled.contains(c)){
                 continue;
@@ -38,8 +42,9 @@ public class CheckoutSolution {
         }
         int groupLength =  totBundledItems / 3;
         int toConsume = groupLength * 3;
+
         int count = 0;
-        while (count < toConsume) {
+        while (count < toConsume && !groupOrder.isEmpty()) {
             int idx = skus.indexOf(groupOrder.getFirst().toString());
             if(idx >= 0) {
                 skus.deleteCharAt(idx);
@@ -48,6 +53,7 @@ public class CheckoutSolution {
                 groupOrder.removeFirst();
             }
         }
+        return count * 45;
     }
 
     private Integer getItemsPrice(char item, int count, String skus) {
@@ -138,7 +144,7 @@ public class CheckoutSolution {
     private Integer getKPrice(int count) {
         int total = 0;
         if (count >= 2) {
-            total += (count / 2) * 150;
+            total += (count / 2) * 120;
             count = count % 2;
         }
         total += count * 80;
@@ -196,6 +202,7 @@ public class CheckoutSolution {
     }
 
 }
+
 
 
 
