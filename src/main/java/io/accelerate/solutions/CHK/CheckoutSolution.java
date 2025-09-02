@@ -43,7 +43,7 @@ public class CheckoutSolution {
             case 'J' -> 60 * count;
             case 'K' -> getKPrice(count);
             case 'L' -> 90 * count;
-            case 'M' -> 15 * count;
+            case 'M' -> getMPrice(count, skus);
             case 'N' -> 40 * count;
             default -> 0;
         };
@@ -118,15 +118,9 @@ public class CheckoutSolution {
     }
 
     private Integer getMPrice(int count, String skus) {
-        int total = 0;
-        int free = getCountOfFreeItems('E', skus, 2);
+        int free = getCountOfFreeItems('N', skus, 3);
         int payable = count - free;
-        if (payable >= 2) {
-            total += (payable / 2) * 45;
-            payable = payable % 2;
-        }
-        total += payable * 30;
-        return total;
+        return payable * 15;
     }
 
 }
