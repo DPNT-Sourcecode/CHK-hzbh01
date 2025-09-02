@@ -31,19 +31,7 @@ public class CheckoutSolution {
 
     private Integer getItemsPrice(char item, int count, String skus) {
         return switch (item) {
-            case 'A' -> {
-                int total = 0;
-                if (count >= 5) {
-                    total += (count / 5) * 200;
-                    count = count % 5;
-                }
-                if (count >= 3) {
-                    total += (count / 3) * 130;
-                    count = count % 3;
-                }
-                total += count * 50;
-                yield total;
-            }
+            case 'A' -> getAPrice(count);
             case 'B' -> {
                 int total = 0;
                 int free = getCountOfFreeItems('E', skus, 2);
@@ -77,6 +65,32 @@ public class CheckoutSolution {
     private Integer getCountOfFreeItems(char target, String skus, int divisor) {
         int count = (int) skus.chars().filter(t -> t == target).count();
         return count / divisor;
+    }
+
+    private Integer getAPrice(int count) {
+        int total = 0;
+        if (count >= 5) {
+            total += (count / 5) * 200;
+            count = count % 5;
+        }
+        if (count >= 3) {
+            total += (count / 3) * 130;
+            count = count % 3;
+        }
+        total += count * 50;
+        return total;
+    }
+
+    private Integer getBPrice(int count, String skus) {
+        int total = 0;
+        int free = getCountOfFreeItems('E', skus, 2);
+        int payable = count - free;
+        if (payable >= 2) {
+            total += (payable / 2) * 45;
+            payable = payable % 2;
+        }
+        total += payable * 30;
+        return total;
     }
 
 }
