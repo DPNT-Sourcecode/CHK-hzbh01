@@ -1,7 +1,6 @@
 package io.accelerate.solutions.CHK;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class CheckoutSolution {
@@ -53,7 +52,7 @@ public class CheckoutSolution {
                 groupOrder.remove(0);
             }
         }
-        return toConsume * 45;
+        return groupLength * 45;
     }
 
     private Integer getItemsPrice(char item, int count, String skus) {
@@ -76,14 +75,14 @@ public class CheckoutSolution {
             case 'P' -> getPPrice(count);
             case 'Q' -> getQPrice(count, skus);
             case 'R' -> 50 * count;
-            case 'S' -> 30 * count;
+            case 'S' -> 20 * count;
             case 'T' -> 20 * count;
             case 'U' -> getUPrice(count);
             case 'V' -> getVPrice(count);
             case 'W' -> 20 * count;
-            case 'X' -> 90 * count;
-            case 'Y' -> 10 * count;
-            case 'Z' -> 50 * count;
+            case 'X' -> 17 * count;
+            case 'Y' -> 20 * count;
+            case 'Z' -> 21 * count;
             default -> 0;
         };
     }
@@ -202,6 +201,7 @@ public class CheckoutSolution {
     }
 
 }
+
 
 
 
