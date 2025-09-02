@@ -21,7 +21,3 @@ public class CheckoutSolutionTest {
         assertThat(res, equalTo(60));
     }
 }
-
-
-
-
