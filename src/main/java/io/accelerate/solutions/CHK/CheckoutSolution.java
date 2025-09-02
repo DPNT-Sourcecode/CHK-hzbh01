@@ -13,7 +13,7 @@ public class CheckoutSolution {
         }
 
         for(char c: skus.toCharArray()){
-            if (c != 'A' && c != 'B' && c != 'C' && c != 'D' && c != 'E'){
+            if (c != 'A' && c != 'B' && c != 'C' && c != 'D' && c != 'E' && c != 'F'){
                 return -1;
             }
         }
@@ -59,13 +59,11 @@ public class CheckoutSolution {
             case 'D' -> 15 * count;
             case 'E' -> 40 * count;
             case 'F' -> {
-                int total = 0;
+                int free = 0;
                 if (count >= 3) {
-                    total += (count / 3) * 130;
-                    count = count % 3;
+                    free = (count / 3);
                 }
-                total += count * 10;
-                yield total;
+                yield (count - free) * 10;
             }
             default -> 0;
         };
@@ -77,6 +75,7 @@ public class CheckoutSolution {
     }
 
 }
+
 
 
 
