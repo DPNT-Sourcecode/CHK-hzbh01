@@ -47,7 +47,11 @@ public class CheckoutSolution {
             case 'N' -> 40 * count;
             case 'O' -> 10 * count;
             case 'P' -> getPPrice(count);
-            case 'Q' -> getQPrice(count);
+            case 'Q' -> getQPrice(count, skus);
+            case 'R' -> 50 * count;
+            case 'S' -> 30 * count;
+            case 'T' -> 20 * count;
+            case 'U' -> 10 * count;
             default -> 0;
         };
     }
@@ -146,6 +150,14 @@ public class CheckoutSolution {
         }
         total += payable * 30;
         return total;
+    }
+
+    private Integer getUPrice(int count) {
+        int free = 0;
+        if (count >= 3) {
+            free = (count / 3);
+        }
+        return (count - free) * 40;
     }
 
 }
