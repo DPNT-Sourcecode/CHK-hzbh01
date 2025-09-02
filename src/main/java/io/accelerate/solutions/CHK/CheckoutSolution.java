@@ -46,7 +46,7 @@ public class CheckoutSolution {
             }
             case 'B' -> {
                 int total = 0;
-                int free = getNumberOfFreeBItems(skus);
+                int free = getCountOfFreeItems('E', skus, 2);
                 int payable = count - free;
                 if (payable >= 2) {
                     total += (payable / 2) * 45;
@@ -72,6 +72,11 @@ public class CheckoutSolution {
     private Integer getNumberOfFreeBItems(String skus)  {
         int count = (int) skus.chars().filter(t -> t == 'E').count();
         return count / 2;
+    }
+
+    private Integer getCountOfFreeItems(char target, String skus, int divisor) {
+        int count = (int) skus.chars().filter(t -> t == target).count();
+        return count / divisor;
     }
 
 }
