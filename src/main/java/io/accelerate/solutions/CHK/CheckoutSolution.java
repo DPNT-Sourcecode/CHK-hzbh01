@@ -23,15 +23,16 @@ public class CheckoutSolution {
                 continue;
             }
             long count = skus.chars().filter(t -> t == c).count();
-            sum += getItemsPrice(c, (int) count);
+            sum += getItemsPrice(c, (int) count, skus);
             itemsHandled.add(c);
         }
         return sum;
     }
 
-    private Integer getItemsPrice(char item, int count) {
+    private Integer getItemsPrice(char item, int count, String skus) {
         return switch (item) {
             case 'A' -> {
+                int numE = getNumberOfItem('E', skus);
                 if (count >= 3) {
                     int remain = count % 3;
                     int discounted = count / 3;
@@ -52,6 +53,10 @@ public class CheckoutSolution {
             case 'E' -> 40 * count;
             default -> 0;
         };
+    }
+
+    private Integer getNumberOfItem(char item, String skus)  {
+        return (int) skus.chars().filter(t -> t == item).count();
     }
 
 }
