@@ -19,13 +19,13 @@ public class CheckoutSolution {
     }
 
     private Integer getSingleItemPrice(char item, long count) {
-        return switch (item) {
-            case 'A' -> 50;
-            case 'B' -> 30;
-            case 'C' -> 20;
-            case 'D' -> 15;
-            default -> 0;
-        };
+        switch(item){
+            case 'A':
+                if (count >= 3) {
+                    
+                }
+        }
+
     }
 }
 
@@ -33,6 +33,13 @@ public class CheckoutSolution {
 // receive items as string ? multiple items ? how seperated ?
 // assuming skus is a lsit of
 
+    return switch (item) {
+        case 'A' -> 50;
+        case 'B' -> 30;
+        case 'C' -> 20;
+        case 'D' -> 15;
+default -> 0;
+        };
 
 
 
