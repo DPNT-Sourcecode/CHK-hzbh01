@@ -13,7 +13,7 @@ public class CheckoutSolution {
         }
 
         for(char c: skus.toCharArray()){
-            if (c != 'A' && c != 'B' && c != 'C' && c != 'D' && c != 'E' && c != 'F'){
+            if (c < 'A' || c > 'Z') {
                 return -1;
             }
         }
