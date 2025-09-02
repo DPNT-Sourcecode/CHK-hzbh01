@@ -58,6 +58,15 @@ public class CheckoutSolution {
             case 'C' -> 20 * count;
             case 'D' -> 15 * count;
             case 'E' -> 40 * count;
+            case 'F' -> {
+                int total = 0;
+                if (count >= 3) {
+                    total += (count / 3) * 130;
+                    count = count % 3;
+                }
+                total += count * 10;
+                yield total;
+            }
             default -> 0;
         };
     }
@@ -68,5 +77,6 @@ public class CheckoutSolution {
     }
 
 }
+
 
 
