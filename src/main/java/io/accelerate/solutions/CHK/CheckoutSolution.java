@@ -40,7 +40,13 @@ public class CheckoutSolution {
         int toConsume = groupLength * 3;
         int count = 0;
         while (count < toConsume) {
-            count++;
+            int idx = skus.indexOf(groupOrder.getFirst().toString());
+            if(idx >= 0) {
+                skus.deleteCharAt(idx);
+                count++;
+            } else {
+                groupOrder.removeFirst();
+            }
         }
     }
 
@@ -190,5 +196,6 @@ public class CheckoutSolution {
     }
 
 }
+
 
 
