@@ -7,9 +7,20 @@ public class CheckoutSolution {
     public Integer checkout(String skus) {
         int sum = 0;
         List<Character> itemsHandled = new ArrayList<>();
+
+        if (skus == null) {
+            return -1;
+        }
+
+        for(char c: skus.toCharArray()){
+            if (c != 'A' && c != 'B' && c != 'C' && c != 'D'){
+                return -1;
+            }
+        }
+
         for(char c: skus.toCharArray()){
             if(itemsHandled.contains(c)){
-                break;
+                continue;
             }
             long count = skus.chars().filter(t -> t == c).count();
             sum += getItemsPrice(c, (int) count);
@@ -41,14 +52,5 @@ public class CheckoutSolution {
             default -> 0;
         };
     }
+
 }
-
-
-// receive items as string ? multiple items ? how seperated ?
-// assuming skus is a lsit of
-
-
-
-
-
-
