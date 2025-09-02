@@ -46,7 +46,7 @@ public class CheckoutSolution {
             }
             case 'B' -> {
                 int total = 0;
-                int free = getNumberOfFreeBItems('E', skus);
+                int free = getNumberOfFreeBItems(skus);
                 int payable = count - free;
                 if (payable >= 2) {
                     total += (payable / 2) * 45;
@@ -68,4 +68,5 @@ public class CheckoutSolution {
     }
 
 }
+
 

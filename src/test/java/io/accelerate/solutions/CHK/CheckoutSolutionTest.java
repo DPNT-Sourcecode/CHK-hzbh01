@@ -17,7 +17,8 @@ public class CheckoutSolutionTest {
 
     @Test
     public void compute_sum() {
-        int res = chk.checkout("ABBAABCDDT");
-        assertThat(res, equalTo(-1));
+        int res = chk.checkout("AAAAAAA");
+        assertThat(res, equalTo(380));
     }
 }
+
