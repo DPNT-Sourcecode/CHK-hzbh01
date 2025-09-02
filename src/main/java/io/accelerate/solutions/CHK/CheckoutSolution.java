@@ -12,37 +12,40 @@ public class CheckoutSolution {
                 break;
             }
             long count = skus.chars().filter(t -> t == c).count();
-            sum += getSingleItemPrice(c, (int) count);
+            sum += getItemsPrice(c, (int) count);
             itemsHandled.add(c);
         }
         return sum;
     }
 
-    private Integer getSingleItemPrice(char item, int count) {
-        switch(item){
-            case 'A':
+    private Integer getItemsPrice(char item, int count) {
+        return switch (item) {
+            case 'A' -> {
                 if (count >= 3) {
                     int remain = count % 3;
                     int discounted = count / 3;
-                    return discounted * 130 + remain * 50;
+                    yield discounted * 130 + remain * 50;
                 }
-                return 50;
-        }
-
+                yield 50 * count;
+            }
+            case 'B' -> {
+                if (count >= 2) {
+                    int remain = count % 2;
+                    int discounted = count / 2;
+                    yield discounted * 45 + remain * 30;
+                }
+                yield 30 * count;
+            }
+            case 'C' -> 20 * count;
+            case 'D' -> 15 * count;
+            default -> 0;
+        };
     }
 }
 
 
 // receive items as string ? multiple items ? how seperated ?
 // assuming skus is a lsit of
-
-    return switch (item) {
-        case 'A' -> 50;
-        case 'B' -> 30;
-        case 'C' -> 20;
-        case 'D' -> 15;
-default -> 0;
-        };
 
 
 
