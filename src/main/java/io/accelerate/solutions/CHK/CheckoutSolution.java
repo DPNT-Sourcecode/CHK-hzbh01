@@ -32,11 +32,16 @@ public class CheckoutSolution {
     private Integer getItemsPrice(char item, int count, String skus) {
         return switch (item) {
             case 'A' -> {
-                if (count >= 3) {
-                    int remain = count % 3;
-                    int discounted = count / 3;
-                    yield discounted * 130 + remain * 50;
+                int total = 0;
+                if (count >= 5) {
+                    total += (count / 5) * 200;
+                    count = count % 5;
                 }
+                if (count >= 3) {
+                    total += (count / 3) * 130;
+                    count = count % 3;
+                }
+                total += count * 50;
                 yield 50 * count;
             }
             case 'B' -> {
