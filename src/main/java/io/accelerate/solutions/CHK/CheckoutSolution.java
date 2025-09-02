@@ -35,7 +35,7 @@ public class CheckoutSolution {
     }
 
     private Integer getBundledItemsPrice(StringBuilder skus) {
-        List<Character> groupOrder = Arrays.asList('Z', 'S', 'T', 'Y', 'X');
+        List<Character> groupOrder = new ArrayList<>(List.of('Z', 'S', 'T', 'Y', 'X'));
         int totBundledItems = 0;
         for(char target: groupOrder) {
             totBundledItems += (int) skus.chars().filter(t -> t == target).count();
@@ -50,7 +50,7 @@ public class CheckoutSolution {
                 skus.deleteCharAt(idx);
                 count++;
             } else {
-                groupOrder.removeFirst();
+                groupOrder.remove(0);
             }
         }
         return count * 45;
@@ -202,6 +202,7 @@ public class CheckoutSolution {
     }
 
 }
+
 
 
 
