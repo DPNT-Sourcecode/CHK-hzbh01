@@ -49,7 +49,7 @@ public class CheckoutSolution {
                 skus.deleteCharAt(idx);
                 count++;
             } else {
-                groupOrder.remove(0);
+                groupOrder.removeFirst();
             }
         }
         return groupLength * 45;
@@ -201,11 +201,3 @@ public class CheckoutSolution {
     }
 
 }
-
-
-
-
-
-
-
-

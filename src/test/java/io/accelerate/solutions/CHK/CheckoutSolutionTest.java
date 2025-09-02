@@ -16,10 +16,8 @@ public class CheckoutSolutionTest {
     }
 
     @Test
-    public void compute_sum() {
-        int res = chk.checkout("STXX");
-        assertThat(res, equalTo(45+17));
+    public void auxTesting() {
+        int res = chk.checkout("YZZZ");
+        assertThat(res, equalTo(20+45));
     }
 }
-
-
