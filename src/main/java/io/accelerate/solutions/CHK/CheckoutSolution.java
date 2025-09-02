@@ -44,9 +44,9 @@ public class CheckoutSolution {
                 if (count >= 2) {
                     int remain = count % 2;
                     int discounted = count / 2;
-                    yield discounted * 45 + remain * 30;
+                    yield discounted * 45 + remain * 30 - (free * 30);
                 }
-                yield 30 * count;
+                yield 30 * count - (free * 30);
             }
             case 'C' -> 20 * count;
             case 'D' -> 15 * count;
@@ -56,7 +56,8 @@ public class CheckoutSolution {
     }
 
     private Integer getNumberOfFreeBItems(char item, String skus)  {
-        return (int) skus.chars().filter(t -> t == item).count();
+        int count = (int) skus.chars().filter(t -> t == item).count();
+        return count / 2;
     }
 
 }
